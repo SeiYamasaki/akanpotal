@@ -42,10 +42,11 @@ class MessageController extends Controller
         ]);
 
         Message::create([
+            'sender_id' => Auth::check() ? Auth::id() : null, // ログインしている場合はIDを保存
             'sender_name' => $request->sender_name, // 企業名または担当者名
             'agent_id' => 1, // 退職代行者のID（仮設定）
             'content' => $request->content,
-            'status' => 'pending', // 未対応
+            'status' => 'pending',
         ]);
 
         return redirect()->route('messages.create')->with('success', 'メッセージを送信しました。');
@@ -86,6 +87,6 @@ class MessageController extends Controller
     // 企業用メッセージ作成ページの表示
     public function create()
     {
-        return view('messages.create'); // 企業がメッセージを作成するページを表示
+        return view('messages.create'); // 企業がメッセージを作成するページ
     }
 }

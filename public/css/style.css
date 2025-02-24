@@ -1,0 +1,101 @@
+/* 中央配置 & スタイリッシュなデザイン */
+.form-container {
+    max-width: 800px;
+    margin: 80px auto;
+    /* 縦の余白を大きく */
+    padding: 50px 50px;
+    /* 上下のパディングを増やして縦幅を確保 */
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* タイトル */
+.title {
+    font-size: 2.2rem;
+    /* さらに大きく */
+    font-weight: bold;
+    margin-bottom: 35px;
+    /* 下の余白を増やす */
+    color: #333;
+}
+
+/* 成功メッセージ */
+.success-message {
+    background: #e6ffed;
+    color: #2d7a4d;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-size: 1.4rem;
+}
+
+/* フォーム */
+.message-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* フォームグループ */
+.form-group {
+    text-align: left;
+    margin-bottom: 30px;
+    /* 各フィールドの間隔を広げる */
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 16px;
+    /* 高さを増やす */
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    transition: all 0.3s ease-in-out;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    min-height: 400px;
+    /* テキストエリアを大きく */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #2563eb;
+    outline: none;
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.4);
+}
+
+/* 送信ボタン */
+.button-container {
+    text-align: right;
+}
+
+.submit-button {
+    padding: 16px 22px;
+    /* さらに大きく */
+    background-color: #2563eb;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.submit-button:hover {
+    background-color: #1e40af;
+    transform: scale(1.05);
+}
