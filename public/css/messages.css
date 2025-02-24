@@ -1,16 +1,63 @@
-/* メッセージ一覧コンテナ */
+/* ✅ ナビゲーションバーの修正 */
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 60px;
+    /* 🔴 高さを固定 */
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ✅ ナビゲーションの内部レイアウト */
+.nav-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ✅ ログアウトボタンの位置を調整 */
+.nav-container .logout-btn {
+    margin-left: auto;
+}
+
+/* ✅ ナビゲーションバーがコンテンツと重ならないようにする */
+body {
+    padding-top: 80px;
+    /* 🔴 余白を増やしてナビゲーションバーとコンテンツを分ける */
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    /* 🔴 横スクロールを防止 */
+}
+
+/* ✅ メッセージ一覧コンテナ */
 .message-container {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 30px;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 0px;
+    /* 🔴 ナビゲーションバーと重ならないようにする */
+    padding: 40px;
     background: white;
     border-radius: 12px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
     text-align: center;
     box-sizing: border-box;
+    min-height: calc(100vh - 120px);
+    /* 🔴 高さを確保してスクロール可能にする */
+    overflow-y: auto;
 }
 
-/* タイトル */
+/* ✅ タイトル */
 .title {
     font-size: 2rem;
     font-weight: bold;
@@ -18,86 +65,78 @@
     color: #333;
 }
 
-/* メッセージカード */
+/* ✅ メッセージカード */
 .message-card {
     background: #fff;
-    padding: 25px;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     text-align: left;
-    width: 90%;
-    max-width: 900px;
+    width: 95%;
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* メッセージ内容 */
-.message-content {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-/* ボタンとバッジを横並びに統一 */
+/* ✅ ボタンとバッジを横並びに統一 */
 .button-container {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: 15px;
-    /* ✅ ボタン間の間隔を統一 */
+    /* 🔴 余白を適切に設定 */
     margin-top: 10px;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
-/* ステータスバッジ */
-.status-badge {
+/* ✅ ボタンとバッジの高さ・幅を統一 */
+.status-badge,
+.view-button,
+.delete-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 8px 16px;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 8px;
-    color: white;
     height: 40px;
-    min-width: 120px;
-    /* ✅ ボタンと同じ幅 */
+    min-width: 140px;
+    /* 🔴 幅を統一 */
     text-align: center;
     box-sizing: border-box;
-    /* ✅ サイズ統一 */
+    font-size: 1rem;
+    font-weight: bold;
 }
 
-/* 各ステータスの色 */
+/* ✅ ステータスバッジのデザイン */
+.status-badge {
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: white;
+}
+
 .status-badge.pending {
     background-color: #facc15;
+    /* 黄色 */
 }
 
 .status-badge.reviewed {
     background-color: #2563eb;
+    /* 青 */
 }
 
 .status-badge.forwarded {
     background-color: #22c55e;
+    /* 緑 */
 }
 
-/* 詳細ボタン */
+/* ✅ 詳細ボタン */
 .view-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 8px 16px;
     background-color: #2563eb;
     color: white;
-    font-size: 1rem;
-    font-weight: bold;
     border-radius: 8px;
     text-decoration: none;
     transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
-    height: 40px;
-    min-width: 120px;
-    /* ✅ バッジと同じ幅 */
-    text-align: center;
-    box-sizing: border-box;
-    /* ✅ サイズ統一 */
 }
 
 .view-button:hover {
@@ -105,41 +144,25 @@
     transform: scale(1.05);
 }
 
-/* 削除ボタン */
+/* ✅ 削除ボタン */
 .delete-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 8px 16px;
     background-color: #e3342f;
     color: white;
-    font-size: 1rem;
-    font-weight: bold;
     border-radius: 8px;
     border: none;
     cursor: pointer;
     transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
-    height: 40px;
-    min-width: 120px;
-    /* ✅ ボタンの幅を統一 */
-    text-align: center;
-    box-sizing: border-box;
-    /* ✅ サイズ統一 */
     appearance: none;
-    /* ✅ ブラウザのデフォルトスタイルを無効化 */
-    line-height: 24px;
-    /* ✅ テキスト位置のズレを防止 */
+    min-width: 140px;
+    /* 🔴 幅を統一 */
+    height: 40px;
+    /* 🔴 高さを統一 */
 }
 
-.delete-button:hover {
-    background-color: #cc1f1a;
-    transform: scale(1.05);
-}
-
-/* 削除ボタンのフォームの高さを統一 */
+/* ✅ 削除ボタンのフォーム */
 .delete-button-form {
     display: flex;
     align-items: center;
-    /* ✅ 高さを揃える */
     height: 40px;
 }

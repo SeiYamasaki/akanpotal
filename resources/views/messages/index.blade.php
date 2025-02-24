@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('title', 'メッセージ一覧')
+
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/messages.css') }}">
+@endpush
+
 @section('content')
     <div class="message-container">
         <h1 class="title">メッセージ一覧</h1>

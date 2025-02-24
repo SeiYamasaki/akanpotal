@@ -12,14 +12,14 @@ class MessageController extends Controller
     public function index()
     {
         if (!Auth::check()) {
-            return redirect()->route('login')->with('error', 'ログインしてください。');
+            return view('messages.index', ['messages' => []]); // 空のリストを返す
         }
 
-        // 退職代行者のIDでフィルタリング
         $messages = Message::where('agent_id', Auth::id())->orderBy('created_at', 'desc')->get();
 
         return view('messages.index', compact('messages'));
     }
+
 
     // メッセージ詳細表示（退職代行者専用）
     public function show($id)

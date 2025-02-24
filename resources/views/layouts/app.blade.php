@@ -3,35 +3,48 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>退職代行メッセージポータル</title>
-    @if (request()->is('messages/create'))
-        <link rel="stylesheet" href="{{ asset('css/create.css') }}">
-    @elseif(request()->is('messages'))
-        <link rel="stylesheet" href="{{ asset('css/messages.css') }}">
-    @endif
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title', 'Laravelアプリ')</title>
+
+    <!-- ✅ Tailwind CSS をCDNで読み込み -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ✅ 必要なCSSのみ適用 -->
+    @stack('styles')
+
 </head>
 
 <body class="bg-gray-100">
-    <!-- ✅ ナビゲーションバーを上に配置 -->
-    <nav class="bg-white border-b border-gray-200 px-4 py-2 flex justify-between">
-        <div>
-            <a href="{{ route('dashboard') }}" class="text-lg font-bold text-gray-800">Dashboard</a>
-        </div>
-        <div>
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">
-                    ログアウト
-                </button>
-            </form>
+
+    <!-- ✅ ナビゲーションバーを修正 -->
+    <nav class="bg-white shadow-md fixed w-full top-0 left-0 z-50 py-4">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <!-- ✅ 左側：ダッシュボードリンク -->
+            <a href="{{ route('dashboard') }}" class="text-lg font-semibold text-blue-600">ダッシュボード</a>
+
+            <!-- ✅ 右側：ログアウトボタン（ログイン状態でのみ表示） -->
+            <div>
+                @auth
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+                            ログアウト
+                        </button>
+                    </form>
+                @else
+                    <a href="{{ route('login') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                        ログイン
+                    </a>
+                @endauth
+            </div>
         </div>
     </nav>
 
-    <!-- ✅ メインコンテンツ -->
-    <div class="max-w-7xl mx-auto p-4">
-        @yield('content')
+    <!-- ✅ ナビゲーションバーの下にコンテンツを配置 -->
+    <div class="container mx-auto p-6 mt-20">
+        @yield('content') <!-- 各ページのコンテンツがここに入る -->
     </div>
+
 </body>
 
 </html>
