@@ -1,4 +1,4 @@
-/* ✅ 全画面中央配置 */
+/* ✅ 背景デザイン */
 html,
 body {
     height: 100%;
@@ -19,15 +19,27 @@ body {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
     text-align: center;
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 400px;
+    /* 🔴 最低でも400pxの高さを確保 */
 }
 
 /* ✅ ログインタイトル */
 .login-title {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
     color: #333;
+}
+
+/* ✅ ログイン説明文 */
+.login-description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
 }
 
 /* ✅ 入力フォーム */
@@ -62,7 +74,7 @@ body {
     background-color: #1e40af;
 }
 
-/* ✅ パスワードリセット・新規登録リンク */
+/* ✅ パスワードリセットのリンク */
 .login-links {
     margin-top: 15px;
     font-size: 0.9rem;
