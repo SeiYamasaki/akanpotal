@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/create.css') }}">
+@endpush
+
 @section('content')
     <div class="form-container">
         <h1 class="title">本人に伝達事項があれば送信してください｡</h1>
