@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>退職代行メッセージポータル</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    @if (request()->is('messages/create'))
+        <link rel="stylesheet" href="{{ asset('css/create.css') }}">
+    @elseif(request()->is('messages'))
+        <link rel="stylesheet" href="{{ asset('css/messages.css') }}">
+    @endif
 </head>
 
 <body class="bg-gray-100">
