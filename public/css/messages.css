@@ -1,3 +1,12 @@
+/* ✅ 背景を鮮やかな緑にする */
+body {
+    background: linear-gradient(135deg, #a8e063, #56ab2f);
+    /* 🌿 より明るい緑 */
+    font-family: Arial, sans-serif;
+    padding-top: 80px;
+    overflow-x: hidden;
+}
+
 /* ✅ ナビゲーションバーの修正 */
 nav {
     position: fixed;
@@ -5,7 +14,6 @@ nav {
     top: 0;
     left: 0;
     height: 60px;
-    /* 🔴 高さを固定 */
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 10px 20px;
@@ -15,45 +23,19 @@ nav {
     align-items: center;
 }
 
-/* ✅ ナビゲーションの内部レイアウト */
-.nav-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* ✅ ログアウトボタンの位置を調整 */
-.nav-container .logout-btn {
-    margin-left: auto;
-}
-
-/* ✅ ナビゲーションバーがコンテンツと重ならないようにする */
-body {
-    padding-top: 80px;
-    /* 🔴 余白を増やしてナビゲーションバーとコンテンツを分ける */
-    background-color: #f4f4f4;
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
-    /* 🔴 横スクロールを防止 */
-}
-
 /* ✅ メッセージ一覧コンテナ */
 .message-container {
     max-width: 1200px;
     margin: auto;
     margin-top: 0px;
-    /* 🔴 ナビゲーションバーと重ならないようにする */
     padding: 40px;
     background: white;
     border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    /* 🔴 よりリッチな影を適用 */
     text-align: center;
     box-sizing: border-box;
     min-height: calc(100vh - 120px);
-    /* 🔴 高さを確保してスクロール可能にする */
     overflow-y: auto;
 }
 
@@ -62,21 +44,24 @@ body {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 25px;
-    color: #333;
+    color: #155724;
+    /* 🔴 深い緑でタイトルを強調 */
 }
 
 /* ✅ メッセージカード */
 .message-card {
-    background: #fff;
+    background: #ffffff;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     margin-bottom: 20px;
     text-align: left;
     width: 95%;
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
+    border-left: 5px solid #28a745;
+    /* 🔴 カードに緑のアクセントを追加 */
 }
 
 /* ✅ ボタンとバッジを横並びに統一 */
@@ -85,26 +70,9 @@ body {
     align-items: center;
     justify-content: flex-start;
     gap: 15px;
-    /* 🔴 余白を適切に設定 */
     margin-top: 10px;
     flex-wrap: wrap;
     width: 100%;
-}
-
-/* ✅ ボタンとバッジの高さ・幅を統一 */
-.status-badge,
-.view-button,
-.delete-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    min-width: 140px;
-    /* 🔴 幅を統一 */
-    text-align: center;
-    box-sizing: border-box;
-    font-size: 1rem;
-    font-weight: bold;
 }
 
 /* ✅ ステータスバッジのデザイン */
@@ -112,52 +80,57 @@ body {
     padding: 8px 16px;
     border-radius: 8px;
     color: white;
+    font-weight: bold;
 }
 
 .status-badge.pending {
-    background-color: #facc15;
+    background-color: #ffc107;
     /* 黄色 */
 }
 
 .status-badge.reviewed {
-    background-color: #2563eb;
+    background-color: #007bff;
     /* 青 */
 }
 
 .status-badge.forwarded {
-    background-color: #22c55e;
+    background-color: #28a745;
     /* 緑 */
 }
 
 /* ✅ 詳細ボタン */
 .view-button {
     padding: 8px 16px;
-    background-color: #2563eb;
+    background-color: #007bff;
     color: white;
     border-radius: 8px;
     text-decoration: none;
+    font-weight: bold;
     transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
 }
 
 .view-button:hover {
-    background-color: #1e40af;
+    background-color: #0056b3;
     transform: scale(1.05);
 }
 
 /* ✅ 削除ボタン */
 .delete-button {
     padding: 8px 16px;
-    background-color: #e3342f;
+    background-color: #dc3545;
     color: white;
     border-radius: 8px;
     border: none;
     cursor: pointer;
+    font-weight: bold;
     transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
-    appearance: none;
     min-width: 140px;
-    /* 🔴 幅を統一 */
     height: 40px;
-    /* 🔴 高さを統一 */
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
 }
 
 /* ✅ 削除ボタンのフォーム */
