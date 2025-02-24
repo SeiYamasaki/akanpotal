@@ -14,7 +14,7 @@
             <div class="message-card">
                 <p class="message-content">{{ $message->content }}</p>
 
-                <!-- ステータスバッジとボタンを横並び -->
+                <!-- ステータスバッジ、詳細ボタン、削除ボタンを横並び -->
                 <div class="button-container">
                     <span class="status-badge {{ $message->status }}">
                         ステータス: {{ ucfirst($message->status) }}
@@ -23,6 +23,14 @@
                     <a href="{{ route('messages.show', $message->id) }}" class="view-button">
                         詳細を見る
                     </a>
+
+                    <!-- 削除ボタン -->
+                    <form action="{{ route('messages.destroy', $message->id) }}" method="POST" class="delete-button-form"
+                        onsubmit="return confirm('本当に削除しますか？');">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="delete-button">削除</button>
+                    </form>
                 </div>
             </div>
         @endforeach

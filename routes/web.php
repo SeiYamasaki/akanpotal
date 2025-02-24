@@ -33,6 +33,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('messages', MessageController::class)->except(['create', 'edit', 'store']);
 });
 
+Route::delete('/messages/{message}', [MessageController::class, 'destroy'])->name('messages.destroy');
+
+
 // ✅ ログアウト処理
 Route::post('/logout', function (Request $request) {
     Auth::guard('web')->logout();

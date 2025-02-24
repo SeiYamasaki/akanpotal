@@ -38,30 +38,32 @@
     margin-bottom: 10px;
 }
 
-/* ボタンとバッジを横並び */
+/* ボタンとバッジを横並びに統一 */
 .button-container {
     display: flex;
     align-items: center;
-    gap: 10px;
-    /* ✅ ボタンとバッジの間隔を調整 */
+    justify-content: flex-start;
+    gap: 15px;
+    /* ✅ ボタン間の間隔を統一 */
+    margin-top: 10px;
 }
 
 /* ステータスバッジ */
 .status-badge {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 8px 16px;
-    /* ✅ 余白を減らしてコンパクトに */
     font-size: 1rem;
     font-weight: bold;
     border-radius: 8px;
     color: white;
     height: 40px;
-    /* ✅ 高さを小さく */
-    line-height: 40px;
-    /* ✅ テキストを中央配置 */
     min-width: 120px;
-    /* ✅ 幅をボタンと統一 */
+    /* ✅ ボタンと同じ幅 */
     text-align: center;
+    box-sizing: border-box;
+    /* ✅ サイズ統一 */
 }
 
 /* 各ステータスの色 */
@@ -79,9 +81,10 @@
 
 /* 詳細ボタン */
 .view-button {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 8px 16px;
-    /* ✅ ボタンの余白を調整 */
     background-color: #2563eb;
     color: white;
     font-size: 1rem;
@@ -90,12 +93,53 @@
     text-decoration: none;
     transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
     height: 40px;
-    /* ✅ バッジと同じ高さ */
-    line-height: 40px;
-    /* ✅ テキストを中央配置 */
+    min-width: 120px;
+    /* ✅ バッジと同じ幅 */
+    text-align: center;
+    box-sizing: border-box;
+    /* ✅ サイズ統一 */
 }
 
 .view-button:hover {
     background-color: #1e40af;
     transform: scale(1.05);
+}
+
+/* 削除ボタン */
+.delete-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: #e3342f;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
+    height: 40px;
+    min-width: 120px;
+    /* ✅ ボタンの幅を統一 */
+    text-align: center;
+    box-sizing: border-box;
+    /* ✅ サイズ統一 */
+    appearance: none;
+    /* ✅ ブラウザのデフォルトスタイルを無効化 */
+    line-height: 24px;
+    /* ✅ テキスト位置のズレを防止 */
+}
+
+.delete-button:hover {
+    background-color: #cc1f1a;
+    transform: scale(1.05);
+}
+
+/* 削除ボタンのフォームの高さを統一 */
+.delete-button-form {
+    display: flex;
+    align-items: center;
+    /* ✅ 高さを揃える */
+    height: 40px;
 }
