@@ -59,4 +59,9 @@ class MessageController extends Controller
 
         return redirect()->route('messages.index')->with('success', 'メッセージを削除しました。');
     }
+
+    public function create()
+    {
+        return view('messages.create'); // 企業側メッセージ作成ページを表示
+    }
 }
