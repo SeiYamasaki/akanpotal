@@ -13,12 +13,17 @@
         @foreach ($messages as $message)
             <div class="message-card">
                 <p class="message-content">{{ $message->content }}</p>
-                <span class="status-badge {{ $message->status }}">
-                    ステータス: {{ ucfirst($message->status) }}
-                </span>
-                <a href="{{ route('messages.show', $message->id) }}" class="view-button">
-                    詳細を見る
-                </a>
+
+                <!-- ステータスバッジとボタンを横並び -->
+                <div class="button-container">
+                    <span class="status-badge {{ $message->status }}">
+                        ステータス: {{ ucfirst($message->status) }}
+                    </span>
+
+                    <a href="{{ route('messages.show', $message->id) }}" class="view-button">
+                        詳細を見る
+                    </a>
+                </div>
             </div>
         @endforeach
     </div>

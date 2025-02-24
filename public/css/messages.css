@@ -1,9 +1,7 @@
 /* メッセージ一覧コンテナ */
 .message-container {
     max-width: 1000px;
-    /* 以前より少し広くする */
     margin: 40px auto;
-    /* 余白を調整 */
     padding: 30px;
     background: white;
     border-radius: 12px;
@@ -24,13 +22,12 @@
 .message-card {
     background: #fff;
     padding: 25px;
-    /* 余裕を持たせる */
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     text-align: left;
     width: 90%;
-    /* 横幅を広げて見やすく */
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -41,16 +38,33 @@
     margin-bottom: 10px;
 }
 
+/* ボタンとバッジを横並び */
+.button-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* ✅ ボタンとバッジの間隔を調整 */
+}
+
 /* ステータスバッジ */
 .status-badge {
     display: inline-block;
-    padding: 6px 12px;
-    font-size: 0.9rem;
+    padding: 8px 16px;
+    /* ✅ 余白を減らしてコンパクトに */
+    font-size: 1rem;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 8px;
     color: white;
+    height: 40px;
+    /* ✅ 高さを小さく */
+    line-height: 40px;
+    /* ✅ テキストを中央配置 */
+    min-width: 120px;
+    /* ✅ 幅をボタンと統一 */
+    text-align: center;
 }
 
+/* 各ステータスの色 */
 .status-badge.pending {
     background-color: #facc15;
 }
@@ -66,15 +80,19 @@
 /* 詳細ボタン */
 .view-button {
     display: inline-block;
-    padding: 8px 12px;
+    padding: 8px 16px;
+    /* ✅ ボタンの余白を調整 */
     background-color: #2563eb;
     color: white;
     font-size: 1rem;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 8px;
     text-decoration: none;
-    margin-top: 10px;
     transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
+    height: 40px;
+    /* ✅ バッジと同じ高さ */
+    line-height: 40px;
+    /* ✅ テキストを中央配置 */
 }
 
 .view-button:hover {
