@@ -14,6 +14,10 @@
             </div>
         @endif
 
+        @if (session('error'))
+            <div class="error-message">{{ session('error') }}</div>
+        @endif
+
         <form method="POST" action="{{ route('messages.store') }}" class="message-form">
             @csrf
 
