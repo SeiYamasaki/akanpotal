@@ -1,10 +1,11 @@
-/* 中央配置 & スタイリッシュなデザイン */
+/* フォーム全体のスタイル */
 .form-container {
-    max-width: 800px;
-    margin: 80px auto;
-    /* 縦の余白を大きく */
-    padding: 50px 50px;
-    /* 上下のパディングを増やして縦幅を確保 */
+    max-width: 900px;
+    /* 以前より少し広くする */
+    margin: 40px auto;
+    /* 余白を調整 */
+    padding: 50px 60px;
+    /* 横幅も統一 */
     background: white;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -15,12 +16,12 @@
 /* タイトル */
 .title {
     font-size: 2.2rem;
-    /* さらに大きく */
     font-weight: bold;
-    margin-bottom: 35px;
-    /* 下の余白を増やす */
+    margin-bottom: 30px;
+    /* 少し余白を狭める */
     color: #333;
 }
+
 
 /* 成功メッセージ */
 .success-message {

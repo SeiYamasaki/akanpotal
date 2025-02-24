@@ -1,8 +1,10 @@
 /* メッセージ一覧コンテナ */
 .message-container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
+    max-width: 1000px;
+    /* 以前より少し広くする */
+    margin: 40px auto;
+    /* 余白を調整 */
+    padding: 30px;
     background: white;
     border-radius: 12px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
@@ -21,11 +23,16 @@
 /* メッセージカード */
 .message-card {
     background: #fff;
-    padding: 20px;
+    padding: 25px;
+    /* 余裕を持たせる */
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     text-align: left;
+    width: 90%;
+    /* 横幅を広げて見やすく */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* メッセージ内容 */
