@@ -38,3 +38,6 @@ Route::post('/logout', function (Request $request) {
     return redirect('/login');
 })->name('logout');
 require __DIR__ . '/auth.php';
+
+Route::get('/messages/create', [MessageController::class, 'create'])->name('messages.create'); // 企業用のメッセージ作成ページ
+Route::post('/messages', [MessageController::class, 'store'])->name('messages.store'); // 企業用メッセージ送信処理
