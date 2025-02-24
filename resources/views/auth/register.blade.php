@@ -1,52 +1,57 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+@extends('layouts.app')
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+@endpush
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+@section('content')
+    <div class="container" style="max-width: 1000px; padding: 60px; display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <form method="POST" action="{{ route('register') }}" class="register-form" style="font-size: 1.5rem; padding: 60px; width: 700px;">
+            @csrf
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <h2 class="form-title" style="font-size: 3rem; text-align: center;">アカウント登録</h2>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+            <!-- Name -->
+            <div class="input-group" style="margin-bottom: 35px;">
+                <label for="name" class="input-label">名前</label>
+                <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus
+                    autocomplete="name" class="input-field" style="height: 70px; font-size: 1.6rem;">
+                @error('name')
+                    <span class="error-message">{{ $message }}</span>
+                @enderror
+            </div>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+            <!-- Email Address -->
+            <div class="input-group mt-4" style="margin-bottom: 35px;">
+                <label for="email" class="input-label">メールアドレス</label>
+                <input id="email" type="email" name="email" value="{{ old('email') }}" required
+                    autocomplete="username" class="input-field" style="height: 70px; font-size: 1.6rem;">
+                @error('email')
+                    <span class="error-message">{{ $message }}</span>
+                @enderror
+            </div>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+            <!-- Password -->
+            <div class="input-group mt-4" style="margin-bottom: 35px;">
+                <label for="password" class="input-label">パスワード</label>
+                <input id="password" type="password" name="password" required autocomplete="new-password"
+                    class="input-field" style="height: 70px; font-size: 1.6rem;">
+                @error('password')
+                    <span class="error-message">{{ $message }}</span>
+                @enderror
+            </div>
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+            <!-- Confirm Password -->
+            <div class="input-group mt-4" style="margin-bottom: 35px;">
+                <label for="password_confirmation" class="input-label">パスワード確認</label>
+                <input id="password_confirmation" type="password" name="password_confirmation" required
+                    autocomplete="new-password" class="input-field" style="height: 70px; font-size: 1.6rem;">
+                @error('password_confirmation')
+                    <span class="error-message">{{ $message }}</span>
+                @enderror
+            </div>
 
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+            <button type="submit" class="primary-button" style="height: 80px; font-size: 2rem; width: 100%;">アカウントを作成</button>
+        </form>
+    </div>
+@endsection

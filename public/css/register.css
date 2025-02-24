@@ -1,69 +1,136 @@
-/* 全体のスタイル */
+/* 全体のレイアウト調整 */
+html,
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    height: 100%;
     margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    overflow: hidden;
 }
 
-/* フォームコンテナ */
-form {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-}
-
-/* 見出し */
-h2 {
-    text-align: center;
-    color: #333;
-}
-
-/* 入力フィールド */
-label {
-    font-weight: bold;
-    margin-top: 10px;
-    color: #555;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-/* ボタン */
-button {
-    margin-top: 15px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
+.container {
+    width: 500px;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(106, 17, 203, 0.95), rgba(37, 117, 252, 0.95));
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     color: white;
-    font-size: 16px;
+    font-family: 'Helvetica Neue', sans-serif;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* 背景の不要な要素を削除 */
+body::before,
+body::after,
+.container::before,
+.container::after,
+html::before,
+html::after,
+.container>div::before,
+.container>div::after {
+    content: none !important;
+    display: none !important;
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* 入力フィールドのデザイン */
+.input-field {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    transition: border 0.3s, box-shadow 0.3s;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.input-field:focus {
+    border-color: #ffeb3b;
+    outline: none;
+    box-shadow: 0 0 15px rgba(255, 235, 59, 1);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* エラーメッセージ */
+.error-message {
+    color: #ff4d4d;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* リンクのスタイル */
+.link-text {
+    color: #ffeb3b;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.link-text:hover {
+    color: #ffcc00;
+    text-decoration: underline;
+}
+
+/* ボタンのスタイル */
+.primary-button {
+    background: linear-gradient(90deg, #ffeb3b, #ff9800);
+    color: #333;
+    padding: 16px 25px;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+    border: none;
     cursor: pointer;
-    transition: background 0.3s;
+    width: 100%;
+    margin-top: 20px;
 }
 
-button:hover {
-    background-color: #0056b3;
+.primary-button:hover {
+    background: linear-gradient(90deg, #ffcc00, #ff5722);
+    transform: scale(1.05);
 }
 
-/* レスポンシブ対応 */
-@media (max-width: 480px) {
-    form {
-        width: 90%;
+/* 修正されたフェードインアニメーション */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -55%);
     }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* 見出しのデザイン */
+h2 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* 背景の不要な余白や装飾を削除 */
+.container.mx-auto {
+    max-width: unset !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
 }
