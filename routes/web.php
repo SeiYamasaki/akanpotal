@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -13,11 +14,9 @@ Route::get('/', function () {
 });
 
 // ✅ ダッシュボード（認証必須）
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-// ✅ 企業のアカウント登録は不要になったため削除
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
 
 // ✅ ユーザーの登録フォーム表示（GETリクエスト対応）
 Route::get('/register', function () {

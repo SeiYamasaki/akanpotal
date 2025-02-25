@@ -1,0 +1,98 @@
+/* ✅ ナビゲーションカスタムエリア（@yield('nav') のデザイン） */
+.nav-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* ✅ ログアウトボタン */
+.logout-button {
+    background: #e3342f;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.logout-button:hover {
+    background: #cc1f1a;
+}
+/* ✅ ダッシュボード全体のレイアウト */
+.container {
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 50px 60px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    box-sizing: border-box;
+    min-height: 200px;
+}
+
+/* ✅ タイトルのデザイン */
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ✅ サブタイトルのデザイン */
+h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+}
+
+/* ✅ 説明テキストのデザイン */
+p {
+    font-size: 1.2rem;
+    color: #666;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* ✅ ボタンのデザイン */
+.button-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.button-container a {
+    background: #2563eb;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.button-container a:hover {
+    background: #1e40af;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
