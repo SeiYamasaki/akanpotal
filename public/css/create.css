@@ -38,9 +38,10 @@ body {
     background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb);
     font-family: Arial, sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     animation: fadeIn 1.5s ease-in-out;
 }
@@ -55,30 +56,45 @@ body {
     }
 }
 
-/* ✅ コンテンツを横並びにするコンテナ */
+/* ✅ コンテンツの幅を100%にしてスマホで適切に表示 */
 .container {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 30px;
-    max-width: 1200px;
-    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 100%;
+    width: 95%;
     padding: 20px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        justify-content: center;
+        max-width: 1200px;
+    }
 }
 
 /* ✅ メッセージフォームのデザイン */
 .form-container {
     flex: 1;
     max-width: 700px;
-    padding: 50px;
+    padding: 40px;
     background: #ffffff;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     text-align: center;
-    box-sizing: border-box;
     border: 5px solid #ff758c;
-    position: relative;
+    width: 100%;
+    box-sizing: border-box;
     animation: slideIn 1.5s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        padding: 20px;
+    }
 }
 
 @keyframes slideIn {
@@ -104,6 +120,15 @@ body {
     text-align: left;
     border: 3px solid #ffb74d;
     font-size: 1.4rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .example-container {
+        font-size: 1.2rem;
+        max-width: 100%;
+    }
 }
 
 /* ✅ 入力フィールドのデザイン */
@@ -136,12 +161,18 @@ body {
 }
 
 .form-group textarea {
-    height: 400px;
+    height: 300px;
+}
+
+@media (max-width: 768px) {
+    .form-group textarea {
+        height: 200px;
+    }
 }
 
 /* ✅ 送信ボタン */
 .button-container {
-    text-align: right;
+    text-align: center;
 }
 
 .submit-button {
@@ -155,10 +186,18 @@ body {
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .submit-button:hover {
     background: linear-gradient(90deg, #1e40af, #2563eb);
     transform: scale(1.05);
     box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+@media (max-width: 768px) {
+    .submit-button {
+        font-size: 1rem;
+    }
 }
