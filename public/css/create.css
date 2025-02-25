@@ -7,113 +7,101 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
-/* ✅ フォーム全体のデザイン */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ✅ コンテンツを横並びにするコンテナ */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+}
+
+/* ✅ メッセージフォームのデザイン */
 .form-container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 50px 60px;
-    background: white;
+    flex: 1;
+    max-width: 700px;
+    padding: 50px;
+    background: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     text-align: center;
     box-sizing: border-box;
-    border: 5px solid transparent;
-    background-clip: padding-box;
+    border: 5px solid #ff758c;
     position: relative;
+    animation: slideIn 1.5s ease-in-out;
 }
 
-/* ✅ フォームにカラフルなボーダーエフェクト */
-.form-container::before {
-    content: "";
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3, #ff758c, #ff7eb3);
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ✅ 伝達事項の例のデザイン */
+.example-container {
+    flex: 0.8;
+    max-width: 500px;
+    padding: 20px;
+    background: #fff8e1;
     border-radius: 12px;
-    z-index: -1;
-}
-
-/* ✅ タイトル */
-.title {
-    font-size: 2.2rem;
-    font-weight: bold;
-    margin-bottom: 30px;
-    color: #333;
-    background: linear-gradient(90deg, #2563eb, #1e40af);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* ✅ 成功メッセージ */
-.success-message {
-    background: #e6ffed;
-    color: #2d7a4d;
-    padding: 16px;
-    border-radius: 8px;
-    margin-bottom: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    border: 3px solid #ffb74d;
     font-size: 1.4rem;
 }
 
-/* ✅ エラーメッセージ */
-.error-message {
-    background: #ffebee;
-    color: #d32f2f;
-    padding: 16px;
-    border-radius: 8px;
-    margin-bottom: 25px;
-    font-size: 1.4rem;
-}
-
-/* ✅ フォーム */
-.message-form {
-    display: flex;
-    flex-direction: column;
-}
-
-/* ✅ フォームグループ */
+/* ✅ 入力フィールドのデザイン */
 .form-group {
     text-align: left;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 1.4rem;
 }
 
 .form-group label {
     display: block;
     font-weight: bold;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #444;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    color: #333;
 }
 
-/* ✅ 入力フィールド */
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 16px;
+    padding: 10px;
     border: 2px solid #ccc;
     border-radius: 8px;
-    font-size: 1.4rem;
-    transition: all 0.3s ease-in-out;
+    font-size: 1.2rem;
     box-sizing: border-box;
     background: #f9f9f9;
 }
 
-/* ✅ フォーカス時のエフェクト */
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: #2563eb;
-    outline: none;
-    box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);
-    background: #ffffff;
-}
-
-/* ✅ テキストエリア */
 .form-group textarea {
-    min-height: 250px;
-    resize: vertical;
+    height: 400px;
 }
 
 /* ✅ 送信ボタン */
@@ -122,10 +110,10 @@ body {
 }
 
 .submit-button {
-    padding: 16px 22px;
+    padding: 12px 20px;
     background: linear-gradient(90deg, #2563eb, #1e40af);
     color: white;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: bold;
     border: none;
     border-radius: 8px;
@@ -136,6 +124,6 @@ body {
 
 .submit-button:hover {
     background: linear-gradient(90deg, #1e40af, #2563eb);
-    transform: scale(1.08);
+    transform: scale(1.05);
     box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Laravelアプリ')</title>
+    <title>@yield('title', '本人伝達フォーム')</title>
 
     <!-- ✅ Tailwind CSS をCDNで読み込み -->
     <script src="https://cdn.tailwindcss.com"></script>

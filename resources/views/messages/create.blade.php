@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="form-container">
-        <h1 class="title">本人に伝達事項があれば送信してください｡</h1>
+        <h1 class="title">本人への伝達事項を送信してください｡</h1>
 
         @if (session('success'))
             <div class="success-message">
@@ -40,5 +40,22 @@
                 </button>
             </div>
         </form>
+    </div>
+
+    <!-- 伝達事項の例 -->
+    <div class="example-container">
+        <h2>伝達事項の例</h2>
+        <ul>
+            <li>■離職票発行後発送した旨の連絡<br>離職票は企業側に発行の義務があります｡退職日より10日以内に企業所轄のハローワークにて発行依頼をしてください｡発行しない場合は雇用保険法第83条4号により、6ヶ月以下の懲役または30万円以下の罰金が科される可能性がありますのでご注意ください｡</li>
+            <br>
+            <li>■退職届書類記載の金融機関口座に給与を振り込んだ場合</li>
+            <br>
+            <li>■雇用保険被保険者資格喪失確認通知書発行後発送した旨の連絡</li>
+            <br>
+            <li>■有給残存日数の連絡</li>
+            <br>
+            <li>■返却物の回収について</li>
+
+        </ul>
     </div>
 @endsection
