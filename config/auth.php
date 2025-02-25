@@ -110,6 +110,9 @@ return [
     |
     */
 
-    'password_timeout' => env('AUTH_PASSWORD_TIMEOUT', 10800),
+    // 'password_timeout' => env('AUTH_PASSWORD_TIMEOUT', 10800), 一定時間経過するとパスワードの変更が求められる
+    'password_timeout' => 0,
+    //パスワード変更画面を求めなくしている｡
+
 
 ];
