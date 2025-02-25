@@ -71,7 +71,20 @@
             <li>■有給残存日数の連絡</li>
             <br>
             <li>■返却物の回収について</li>
+        </ul>
+    </div>
 
+    <!-- PDF ダウンロードセクション -->
+    <div class="pdf-download-container">
+        <h2>関連資料ダウンロード</h2>
+        <ul>
+            <li><a href="{{ url('storage/健康保険・厚生年金資格喪失届.pdf') }}" target="_blank" class="download-button">健康保険・厚生年金資格喪失届</a>
+            </li>
+            <li><a href="{{ url('storage/源泉徴収票見本.pdf') }}" target="_blank" class="download-button">源泉徴収票見本</a></li>
+            <li><a href="{{ url('storage/雇用保険被保険者資格喪失届.pdf') }}" target="_blank" class="download-button">雇用保険被保険者資格喪失届</a>
+            </li>
+            <li><a href="{{ url('storage/雇用保険被保険者離職証明書.pdf') }}" target="_blank" class="download-button">雇用保険被保険者離職証明書</a>
+            </li>
         </ul>
     </div>
 @endsection
