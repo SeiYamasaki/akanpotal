@@ -17,14 +17,15 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// ✅ 企業のアカウント登録フォーム表示（GETリクエスト対応）
-Route::get('/companies/register', function () {
-    return view('companies.register'); // 企業登録フォームのビュー
-})->name('companies.register.form');
+// ✅ 企業のアカウント登録は不要になったため削除
 
-// ✅ 企業のアカウント登録処理（POSTリクエスト）
-Route::post('/companies/register', [CompanyController::class, 'store'])->name('companies.register');
+// ✅ ユーザーの登録フォーム表示（GETリクエスト対応）
+Route::get('/register', function () {
+    return view('auth.register'); // ユーザー登録フォームのビュー
+})->name('register.form');
 
+// ✅ ユーザーの登録処理（POSTリクエスト）
+Route::post('/register', [AuthenticatedSessionController::class, 'store'])->name('register');
 
 // ✅ メッセージの一覧ページ（正しく表示させるためのルート）
 Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
@@ -54,6 +55,5 @@ Route::post('/logout', function (Request $request) {
     $request->session()->regenerateToken();
     return redirect('/login');
 })->name('logout');
-
 
 require __DIR__ . '/auth.php';
