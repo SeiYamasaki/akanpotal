@@ -50,7 +50,6 @@ body {
     from {
         opacity: 0;
     }
-
     to {
         opacity: 1;
     }
@@ -102,7 +101,6 @@ body {
         transform: translateY(-50px);
         opacity: 0;
     }
-
     to {
         transform: translateY(0);
         opacity: 1;
@@ -161,7 +159,7 @@ body {
 }
 
 .form-group textarea {
-    height: 300px;
+    height: 500px;
 }
 
 @media (max-width: 768px) {
@@ -199,5 +197,51 @@ body {
 @media (max-width: 768px) {
     .submit-button {
         font-size: 1rem;
+    }
+}
+
+/* ✅ PDF ダウンロードセクションのデザイン（PC & スマホ共通） */
+.pdf-download-container {
+    max-width: 500px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 5px solid #2563eb;
+    margin: 20px auto;
+}
+
+/* ✅ ダウンロードボタンのスタイル */
+.download-button {
+    display: block;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    appearance: button;
+    width: auto;
+    max-width: 250px;
+    margin: 10px auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.download-button:hover {
+    background: linear-gradient(135deg, #ff0000, #cc0000);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 94, 120, 0.4);
+}
+
+/* ✅ スマホ用のフォントサイズ調整 */
+@media (max-width: 768px) {
+    .download-button {
+        font-size: 1rem;
+        max-width: 100%;
     }
 }
