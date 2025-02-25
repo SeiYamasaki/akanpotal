@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_admin', // ✅ 管理者フラグを追加
     ];
 
     /**
@@ -43,6 +44,17 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_admin' => 'boolean', // ✅ is_admin を boolean 型でキャスト
         ];
+    }
+
+    /**
+     * 管理者判定メソッド
+     *
+     * @return bool
+     */
+    public function isAdmin(): bool
+    {
+        return $this->is_admin;
     }
 }

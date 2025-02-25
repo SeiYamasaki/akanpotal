@@ -9,17 +9,22 @@ use Illuminate\Support\Facades\Auth;
 class MessageController extends Controller
 {
 
-    // メッセージ一覧（退職代行者が企業からのメッセージを確認）
     public function index()
     {
         if (!Auth::check()) {
             return redirect()->route('login'); // ✅ 未ログインの場合はログインページへリダイレクト
         }
 
-        $messages = Message::where('agent_id', Auth::id())->orderBy('created_at', 'desc')->get();
+        // ✅ 管理者のみ閲覧できるようにする｡http://localhost/messages/
+        if (!Auth::user()->is_admin) {
+            return redirect()->route('dashboard')->with('error', 'このページへのアクセス権限がありません。');
+        }
+
+        $messages = Message::orderBy('created_at', 'desc')->get();
 
         return view('messages.index', compact('messages'));
     }
+
 
     // メッセージ詳細表示（退職代行者専用）
     public function show($id)
