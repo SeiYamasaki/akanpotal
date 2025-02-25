@@ -7,85 +7,175 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f4f4f4;
+    background: linear-gradient(135deg, #a8ff78, #78ffd6);
     font-family: Arial, sans-serif;
+    overflow: hidden;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+body.bg-gray-100 {
+    background: none !important;
 }
 
 /* ✅ ログインフォームの中央配置 */
 .login-container {
-    background: white;
-    padding: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     text-align: center;
     width: 100%;
-    max-width: 600px;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 400px;
-    /* 🔴 最低でも400pxの高さを確保 */
+    min-height: 350px;
+    backdrop-filter: blur(10px);
+    animation: slideIn 1.5s ease-in-out;
 }
 
 /* ✅ ログインタイトル */
 .login-title {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
     margin-bottom: 10px;
-    color: #333;
+    color: #145a32;
+    animation: fadeInUp 1.5s ease-in-out;
 }
 
 /* ✅ ログイン説明文 */
 .login-description {
-    font-size: 1rem;
-    color: #555;
+    font-size: 1.1rem;
+    color: #2e7d32;
     margin-bottom: 20px;
+    animation: fadeInUp 1.8s ease-in-out;
 }
 
 /* ✅ 入力フォーム */
 .login-form {
     width: 100%;
+    animation: bounceIn 1.7s ease-in-out;
 }
 
 .login-form input {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
+    border: 2px solid #1b5e20;
+    border-radius: 8px;
     font-size: 1rem;
     margin-bottom: 15px;
     box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.8);
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.login-form input:focus {
+    border-color: #66bb6a;
+    outline: none;
+    box-shadow: 0 0 15px rgba(102, 187, 106, 1);
+    background: rgba(255, 255, 255, 0.9);
 }
 
 /* ✅ ログインボタン */
 .login-button {
     width: 100%;
-    padding: 12px;
-    background-color: #2563eb;
+    padding: 14px;
+    background: linear-gradient(90deg, #66bb6a, #388e3c);
     color: white;
     border: none;
-    border-radius: 6px;
-    font-size: 1rem;
+    border-radius: 8px;
+    font-size: 1.2rem;
     cursor: pointer;
-    transition: background 0.3s ease-in-out;
+    transition: background 0.3s, transform 0.3s;
+    animation: pulse 2s infinite;
 }
 
 .login-button:hover {
-    background-color: #1e40af;
+    background: linear-gradient(90deg, #43a047, #1b5e20);
+    transform: scale(1.07);
 }
 
 /* ✅ パスワードリセットのリンク */
 .login-links {
     margin-top: 15px;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    color: #1b5e20;
 }
 
 .login-links a {
-    color: #2563eb;
+    color: #2e7d32;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s;
 }
 
 .login-links a:hover {
     text-decoration: underline;
+    color: #66bb6a;
+}
+
+/* ✅ アニメーション */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-80px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
