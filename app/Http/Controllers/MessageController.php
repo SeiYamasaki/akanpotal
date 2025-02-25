@@ -8,18 +8,18 @@ use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
+
     // メッセージ一覧（退職代行者が企業からのメッセージを確認）
     public function index()
     {
         if (!Auth::check()) {
-            return view('messages.index', ['messages' => []]); // 空のリストを返す
+            return redirect()->route('login'); // ✅ 未ログインの場合はログインページへリダイレクト
         }
 
         $messages = Message::where('agent_id', Auth::id())->orderBy('created_at', 'desc')->get();
 
         return view('messages.index', compact('messages'));
     }
-
 
     // メッセージ詳細表示（退職代行者専用）
     public function show($id)
@@ -42,7 +42,7 @@ class MessageController extends Controller
         ]);
 
         Message::create([
-            'sender_id' => Auth::check() ? Auth::id() : null, // ログインしている場合はIDを保存
+            'sender_id' => Auth::id(), // ✅ ログインユーザーIDを必ず保存
             'sender_name' => $request->sender_name, // 企業名または担当者名
             'agent_id' => 1, // 退職代行者のID（仮設定）
             'content' => $request->content,
@@ -52,7 +52,7 @@ class MessageController extends Controller
         return redirect()->route('messages.create')->with('success', 'メッセージを送信しました。');
     }
 
-    // メッセージのステータス更新（退職代行者が確認後、必要に応じてユーザーに転送）
+    // メッセージのステータス更新（退職代行者専用）
     public function update(Request $request, $id)
     {
         $message = Message::findOrFail($id);

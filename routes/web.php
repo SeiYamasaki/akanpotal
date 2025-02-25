@@ -27,21 +27,13 @@ Route::get('/register', function () {
 // ✅ ユーザーの登録処理（POSTリクエスト）
 Route::post('/register', [AuthenticatedSessionController::class, 'store'])->name('register');
 
-// ✅ メッセージの一覧ページ（正しく表示させるためのルート）
-Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
-
-// ✅ メッセージ作成ページ（ログイン不要）
-Route::get('/messages/create', [MessageController::class, 'create'])->name('messages.create');
-
-// ✅ メッセージ送信処理
-Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
-
-// ✅ メッセージの詳細表示
-Route::get('/messages/{message}', [MessageController::class, 'show'])->name('messages.show');
-
-// ✅ メッセージの削除（認証必須）
+// ✅ メッセージのルート（認証必須）
 Route::middleware('auth')->group(function () {
-    Route::delete('/messages/{message}', [MessageController::class, 'destroy'])->name('messages.destroy');
+    Route::get('/messages', [MessageController::class, 'index'])->name('messages.index'); // メッセージ一覧
+    Route::get('/messages/create', [MessageController::class, 'create'])->name('messages.create'); // メッセージ作成
+    Route::post('/messages', [MessageController::class, 'store'])->name('messages.store'); // メッセージ送信
+    Route::get('/messages/{message}', [MessageController::class, 'show'])->name('messages.show'); // メッセージ詳細
+    Route::delete('/messages/{message}', [MessageController::class, 'destroy'])->name('messages.destroy'); // メッセージ削除
 });
 
 // ✅ 共通のログインページ

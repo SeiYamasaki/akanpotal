@@ -4,6 +4,17 @@
     <link rel="stylesheet" href="{{ asset('css/create.css') }}">
 @endpush
 
+@section('nav')
+    @auth
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit" class="logout-button">
+                ログアウト
+            </button>
+        </form>
+    @endauth
+@endsection
+
 @section('content')
     <div class="form-container">
         <h1 class="title">本人への伝達事項を送信してください｡</h1>
